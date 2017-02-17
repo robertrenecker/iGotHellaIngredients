@@ -24,14 +24,12 @@ Motivation:
 There are many instances of individuals not knowing what they can make given a collection of ingredients. They also don’t know how long any meal might take. By giving them a list of an assortment of different combinations of meals, they will make a better use of their time by making the meal that sounds best and in the shortest amount of time. 
 
 Risks:
-
 Don’t know team members skill sets
 Little planning of what needs to be done
 Don’t know optimization methods
 Don’t know what we’ll do for feature engineering
 
 Mitigation Strategy:
-
 Hard work
 Planning to meet few times in order to trace out our individual jobs and deadlines
 Using the agile environment to be as efficient as possible
@@ -53,25 +51,15 @@ Methodology:
 
 Agile	
 
-
 Project Tracking Software:
 
 	Trello
 
 Project Plan:
 
+  https://trello.com/b/ik2tN7ER/project-plan
 
 
-
-
-
-
-Ideas:
-
-User inputs a list of favorite ingredients or ingredients that they have on hand, webapp produces a suggested recipe(s) to try.
-
-
-User inputs interests, a desired difficulty level, maybe even a core attribute, and webapp produces a list of CU courses to take
 
 https://github.com/robertrenecker/iGotHellaIngredients.git
 
