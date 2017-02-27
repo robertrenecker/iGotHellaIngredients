@@ -5,31 +5,63 @@
 	
 	<link rel='stylesheet' type="text/css" href="css/styleSheet.css">
 		<title>Hello </title>
-		<script src ="http://code.jquery.com/jquery-2.2.0.js"></script>
+		<script src ="jquery-3.1.1.min.js"></script>
 		<script type="text/javascript" src="js/homeScript.js"></script>	
+		<script>
+			$(document).ready(function(){
 
+				var link = $.getJSON("https://api.edamam.com/search?q=chicken&app_id=${97cfaafa}&app_key=${fd523bb0131439f0eded7a8e0cd75260}&from=0&to=3&calories=gte%20591,%20lte%20722&health=alcohol-free");
+				$.ajax({url:link, dataType:"jsonp"}).then(function(data){
+
+					$('#food').html('food: ' + data.label);
+
+
+				});
+
+
+
+			});
+			
+
+			</script>
 
 		
 </head>
 
 <body>
 
-<div class="header"> 
+	<div class="header"> 
 	<ul>
 		<li><a href="#home">Home</a></li>
 		<li><a href="#news">News</a></li>
-		<li style="float:right; background-color: #4CAF50">About </li>
+		
 	</ul>
 
 
 
 
-											 </div>
-		<div class="fluid-ratio-resize">
-			
-			<p class="front-text"> Elegant. Simple. Dynamic. </p>
-		</div>
+	</div>
 	
+	<div class="fluid-ratio-resize">
+		<p class="front-text"> Hella Ingredients </p>
+		
+			<div class="main">
+			
+			</div>
+				<div class="left">
+					<p class="sidebarr"> Dairy </p>
+					<p class="sidebarr"> Produce </p>
+					<p class="sidebarr"> Produce </p>
+					<p class="sidebarr"> Produce </p>
+					<p class="sidebarr"> Produce </p>
+					<p class="sidebarr"> Produce </p>n
+				</div>
 
+			
+</div>
+
+
+	
+		
 </body>
 </html>

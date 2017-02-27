@@ -1,3 +1,14 @@
+html,body{
+
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding: 0px;
+	overflow-x:hidden;
+
+}
+
+
 @font-face{
 	font-family: EdmondSans;
 	src: url(Edmondsans-Medium.otf);
@@ -34,30 +45,71 @@ li a:hover {
 	border:1px solid #CCC;
 	position:fixed;
 	top:0px;
-	width:110%;
+	width:100%;
+}
+
+.left{
+	position:absolute;
+	left:0; top:160px; bottom:0;
+	width: 10%;
+	border: solid black;
+	height:400px;
+	background-color: white;
+
+}
+
+.main{
+	
+	left:178px;
+	top:50px;
+	right:0;
+	bottom:0;
+	height:100%;
+	
+
+
+
+}
+#comment{
+
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30%;
+	left: 50%;
+	right: 50%;
+	position:fixed;
+	display: block;
+	padding: 14px 16px;
+	background-color: white;
 }
 
 .fluid-ratio-resize { 
 	max-width: 5184px; /* actual img width */
 	max-height: 3456px;
 	*height: 3456px; /* actual img height - IE7 */
-	background-image: url(../img/background.jpg);
+	background-image: url(../img/background2.jpg);
 	background-size: cover;
 	background-position: center;
+	
 }
+
+
 .fluid-ratio-resize:after {
 	content: " ";
-	display: block; 
-	width: 100%; 
+	display: inline-block; 
+	 
 	padding-top: 60%; /* slope */ /* start height */
 }
+
+
 
 p.front-text{
 	font-family: EdmondSans;
 	font-size: 48px;
-	position:absolute;
+	position:relative;
 	width:100%;
-	height:50%;
+	height:10%;
 	top:0;
 	left:0;
 	vertical-align: center;
@@ -65,3 +117,27 @@ p.front-text{
 	
 
 }
+
+
+
+p.sidebarr{
+	font-family: EdmondSans;
+	color: #A9A9A9;
+	font-weight: bold;
+	font-size:20px;
+	height:10%;
+	text-align: center;
+	border: solid white;
+	margin-top:;
+
+
+
+
+}
+
+.left:hover .top{
+
+	background-color:white;
+}
+
+
