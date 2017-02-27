@@ -48,15 +48,6 @@ li a:hover {
 	width:100%;
 }
 
-.left{
-	position:absolute;
-	left:0; top:160px; bottom:0;
-	width: 10%;
-	border: solid black;
-	height:400px;
-	background-color: white;
-
-}
 
 .main{
 	
@@ -118,22 +109,32 @@ p.front-text{
 
 }
 
-
-
-p.sidebarr{
-	font-family: EdmondSans;
-	color: #A9A9A9;
-	font-weight: bold;
-	font-size:20px;
-	height:10%;
-	text-align: center;
-	border: solid white;
-	margin-top:;
-
-
-
-
+.menu_class {
+	border:1px solid #ffffff;
+	font-size:36px;
 }
+
+
+.file_menu li {
+	background-color:#302f2f;
+	position:relative;
+	font-size:36px;
+}
+
+.file_menu li a {
+	color: #FFFFFF;
+	text-decoration:none;
+	font-size:36px;
+	padding:10px;
+	display:block;
+}
+
+
+.file_menu li a:hover {
+	padding:10px;
+	color: #ffffff;
+}
+
 
 .left:hover .top{
 

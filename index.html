@@ -5,8 +5,7 @@
 	
 	<link rel='stylesheet' type="text/css" href="css/styleSheet.css">
 		<title>Hello </title>
-		<script src ="jquery-3.1.1.min.js"></script>
-		<script type="text/javascript" src="js/homeScript.js"></script>	
+		<script src ="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script>
 			$(document).ready(function(){
 
@@ -42,26 +41,95 @@
 
 	</div>
 	
-	<div class="fluid-ratio-resize">
+<div class="fluid-ratio-resize">
 		<p class="front-text"> Hella Ingredients </p>
 		
 			<div class="main">
 			
 			</div>
 				<div class="left">
-					<p class="sidebarr"> Dairy </p>
-					<p class="sidebarr"> Produce </p>
-					<p class="sidebarr"> Produce </p>
-					<p class="sidebarr"> Produce </p>
-					<p class="sidebarr"> Produce </p>
-					<p class="sidebarr"> Produce </p>n
+					<ul class ="hover">
+						<li class ="hoverli">
+						<a href="#add ingredients">Add Ingredients</a>
+						<ul class="file_menu">
+				<li>
+					<a href="#meat">Meat</a>
+						<ul class="hover">
+						<li><a href="#chicken">Chicken</a></li>
+						<li><a href="#beef">Beef</a></li>
+						<li><a href="#pork">Pork</a></li>
+						</ul>
+		        </li>
+		        <li>
+					<a href="#dairy">Dairy</a>
+						<ul class = "hover">
+						<li><a href="#milk">Milk</a></li>
+						<li><a href="#butter">Butter</a></li>
+						<li><a href="#eggs">Eggs</a></li>
+						</ul>
+		        </li>
+		        <li>
+					<a href="#spices">Spices</a>
+						<ul class = "hover">
+						<li><a href="#basil">Basil</a></li>
+						<li><a href="#parsley">Parsley</a></li>
+						<li><a href="#thyme">Thyme</a></li>
+						</ul>
+		        </li>
+		        <li>
+					<a href="#seafood">Seafood</a>
+						<ul class = "hover">
+						<li><a href="#shrimp">Shrimp</a></li>
+						<li><a href="#scallops">Scallops</a></li>
+						<li><a href="#salmon">Salmon</a></li>
+						</ul>
+		        </li>
+		        <li>
+					<a href="#grain">Grain</a>
+						<ul class = "hover">
+						<li><a href="#pasta">Pasta</a></li>
+						<li><a href="#rice">Rice</a></li>
+						<li><a href="#quinoa">Quinoa</a></li>
+						</ul>
+		        </li>
+		        <li>
+					<a href="#produce">Produce</a>
+						<ul class = "hover">
+						<li><a href="#asparagus">Asparagus</a></li>
+						<li><a href="#broccoli">Broccoli</a></li>
+						<li><a href="#strawberries">Strawberries</a></li>
+						</ul>
+						</ul>
+						</li>
+					</ul>
 				</div>
-
-			
-</div>
+			</div>
 
 
 	
 		
 </body>
+
+<script>
+
+
+$(document).ready(function () {
+$(".hoverli").hover(
+  function () {
+     $('ul.file_menu').slideDown('medium');
+  }, 
+  function () {
+     $('ul.file_menu').slideUp('medium');
+  }
+);
+$(".file_menu li").hover(
+  function () {
+     $(this).children("ul").slideDown('medium');
+  },
+  function () {
+    $(this).children("ul").slideUp('medium');
+  }
+);
+});
+</script>
 </html>
