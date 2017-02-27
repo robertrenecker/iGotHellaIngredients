@@ -2,65 +2,117 @@
 <html>
 <head>
 
-	
 	<link rel='stylesheet' type="text/css" href="css/styleSheet.css">
-		<title>Hello </title>
-		<script src ="jquery-3.1.1.min.js"></script>
-		<script type="text/javascript" src="js/homeScript.js"></script>	
-		<script>
-			$(document).ready(function(){
+	<title>Hello </title>
+	<script src ="jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/homeScript.js"></script>	
+	<script>
+		
+		$(document).ready(function(){
 
-				var link = $.getJSON("https://api.edamam.com/search?q=chicken&app_id=${97cfaafa}&app_key=${fd523bb0131439f0eded7a8e0cd75260}&from=0&to=3&calories=gte%20591,%20lte%20722&health=alcohol-free");
-				$.ajax({url:link, dataType:"jsonp"}).then(function(data){
+			var link = $.getJSON("https://api.edamam.com/search?q=chicken&app_id=${97cfaafa}&app_key=${fd523bb0131439f0eded7a8e0cd75260}&from=0&to=3&calories=gte%20591,%20lte%20722&health=alcohol-free");
+			$.ajax({url:link, dataType:"jsonp"}).then(function(data){
 
-					$('#food').html('food: ' + data.label);
-
-
-				});
-
-
+				$('#food').html('food: ' + data.label);
 
 			});
-			
+		});
+		
+	</script>
+	
+	<style>
+		.dropbtn {
+			background-color: #333;
+			color: #F0F0F0;
+			padding: 16px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+		}
+		
+		.dropbtn:hover, .dropbtn:focus {
+			background-color: black;
+		}
+		
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+		
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f9f9f9;
+			min-width: 160px;
+			overflow: auto;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+		
+		.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
+		
+		.dropdown a:hover {background-color: #f1f1f1}
 
-			</script>
-
+		.show {display:block;}
+	</style>
 		
 </head>
 
 <body>
 
 	<div class="header"> 
-	<ul>
-		<li><a href="#home">Home</a></li>
-		<li><a href="#news">News</a></li>
-		
-	</ul>
-
-
-
-
+		<ul>
+			<li><button onclick = "dropDownFunction()" class = "dropbtn">Home</button></li>
+					<div id = "myDropdown" class = "dropdown-content">
+						<a href = "#Dairy"> Dairy </a>
+						<a href = "#Produce"> Produce </a>
+					</div>
+			<li><a href="#news">News</a></li>
+			
+		</ul>
 	</div>
 	
 	<div class="fluid-ratio-resize">
 		<p class="front-text"> Hella Ingredients </p>
 		
-			<div class="main">
-			
-			</div>
-				<div class="left">
-					<p class="sidebarr"> Dairy </p>
-					<p class="sidebarr"> Produce </p>
-					<p class="sidebarr"> Produce </p>
-					<p class="sidebarr"> Produce </p>
-					<p class="sidebarr"> Produce </p>
-					<p class="sidebarr"> Produce </p>n
-				</div>
+		<div class="main">
+		
+		</div>
+		<div class="left">
+			<p class="sidebarr"> Dairy </p>
+			<p class="sidebarr"> Produce </p>
+			<p class="sidebarr"> Produce </p>
+			<p class="sidebarr"> Produce </p>
+			<p class="sidebarr"> Produce </p>
+			<p class="sidebarr"> Produce </p>
+		</div>
 
-			
-</div>
+	</div>
 
+	<script>
+		function dropDownFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
+		}
 
+		window.onclick = function(event) {
+		  if (!event.target.matches('.dropbtn')) {
+
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+			  var openDropdown = dropdowns[i];
+			  if (openDropdown.classList.contains('show')) {
+				openDropdown.classList.remove('show');
+			  }
+			}
+		  }
+		}
+	</script>
 	
 		
 </body>
