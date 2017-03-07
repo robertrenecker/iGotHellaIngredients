@@ -4,7 +4,9 @@ html,body{
 	height:100%;
 	margin:0px;
 	padding: 0px;
-	overflow-x:hidden;
+	overflow:hidden;
+	position:absolute;
+	white-space: nowrap;
 
 }
 
@@ -48,13 +50,13 @@ li a:hover {
 	width:100%;
 }
 
-.left{
-	position:absolute;
-	left:0; top:160px; bottom:0;
+.sidebar{
+	position:fixed;
+	left:0; top:80px; bottom:0;
 	width: 10%;
 	border: solid black;
 	height:400px;
-	background-color: white;
+	background-color: #D2B48C;
 
 }
 
@@ -120,18 +122,49 @@ p.front-text{
 
 
 
-p.sidebarr{
+.sidebarrr{
+	font-family: EdmondSans;
+	color: #A9A9A9;
+
+	font-weight: bold;
+	font-size:20px;
+	height:10%;
+	text-align: center;
+	
+	margin-top:;
+	bottom:0;
+	transition:width 2s;
+    -webkit-transition:width 2s;
+	
+
+
+}
+
+.produce{
+color: black;
+position: center;
+
+}
+p.sidebarrr{
 	font-family: EdmondSans;
 	color: #A9A9A9;
 	font-weight: bold;
 	font-size:20px;
 	height:10%;
 	text-align: center;
-	border: solid white;
+	overflow: hidden;
 	margin-top:;
+	bottom:0;
+	transition:width 2s;
+    -webkit-transition:width 2s;
 
 
+}
 
+p.sidebarrr:hover{
+	
+	
+	color: white;
 
 }
 
