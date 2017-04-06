@@ -91,14 +91,14 @@ li a:hover {
 	background-image: url(../img/background2.jpg);
 	background-size: cover;
 	background-position: center;
-	
+	z-index: -1;
 }
 
 
 .fluid-ratio-resize:after {
 	content: " ";
 	display: inline-block; 
-	 
+	z-index: -1;
 	padding-top: 60%; /* slope */ /* start height */
 }
 
