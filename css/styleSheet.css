@@ -67,8 +67,19 @@ li a:hover {
 	right:0;
 	bottom:0;
 	height:100%;
-	
+	}
 
+.coverView{
+	opacity:1;
+    background-color:#ccc;
+    position:relative;
+    width:80%;
+    height:1000%;
+    top:0%;
+    left:10%;
+
+    z-index:1000;
+    
 
 
 }
@@ -141,8 +152,9 @@ p.front-text{
 }
 
 .produce{
-color: black;
-position: center;
+	color: black;
+	position: center;
+	visibility: hidden;
 
 }
 p.sidebarrr{
@@ -161,8 +173,9 @@ p.sidebarrr{
 
 }
 
+
+
 p.sidebarrr:hover{
-	
 	
 	color: white;
 
@@ -172,5 +185,8 @@ p.sidebarrr:hover{
 
 	background-color:white;
 }
+
+
+
 
 
