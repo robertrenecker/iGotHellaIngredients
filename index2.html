@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+    <meta charset="utf-8" />
+    <title>Hella Ingredients</title>
+    <style type="text/css">
+        html, body {
+            background-image: url(back2.jpg);
+            background-size: 100%;
+            
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+            width: 100%;
+        }
+        thead{
+            background-color: white;
+            font-size: 36px;
+        }
+        tr {
+            color: black;
+        }
+        td {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        div.button {
+            position: relative;
+            left: 50%;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0px;
+            margin: auto;
+            text-align: center;
+        }
+
+            ul li {
+                margin: auto;
+                position: relative;
+                float: left;
+            }
+
+        li ul {
+            display: none;
+        }
+
+        ul li a {
+            display: block;
+            background: #000;
+            padding: 10px 10px 10px 10px;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+        }
+
+        div.NavMen {
+            width: 1000px;
+            position: relative;
+            left: 36%;
+            top: 250px;
+        }
+
+        .header {
+            height: 40px;
+            background: #000000;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+        }
+
+        p.front-text {
+            font-size: 48px;
+            position: relative;
+            width: 100%;
+            height: 10%;
+            top: 0;
+            left: 0;
+            vertical-align: center;
+            text-align: center;
+        }
+
+        ul li a:hover {
+            background: #b08d51;
+            text-decoration: underline;
+        }
+
+        li:hover ul {
+            display: block;
+            position: absolute;
+        }
+
+        li:hover li {
+            float: none;
+        }
+
+        li:hover a {
+            background: #b08d51;
+        }
+
+        li:hover li a:hover {
+            background: #000;
+        }
+
+        #drop-nav li ul li {
+            border-top: 0px;
+        }
+    </style>
+
+    <script>
+			$(document).ready(function(){
+
+
+
+
+				$().ready(function () {
+  					var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients"
+
+
+  					$.get(url, function (data) {
+    					alert("Data: " + data)
+  					});
+				});
+
+
+				$('#btnSubmit').click(function(){
+
+					var result = $('input[type="checkbox"]:checked');
+					if(result.length > 0){
+						var resultString = result.length + " Ingredient(s) Chosen <br/>";
+
+						result.each(function(){
+
+							resultString += $(this).val() + "<br/>";
+						});
+
+						$('#divResult').html(resultString);
+
+				}
+				else {
+
+					$('#divResult').html("No val is checked");
+
+				}
+
+				})
+			});
+    </script>
+
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+
+        </ul>
+    </div>
+
+    <p class="front-text"> Hella Ingredients Meal Generator</p>
+
+    <table>
+        <thead>
+            <tr>
+            <th>Spices</th>
+            <th>Condiments</th>
+            <th>Grains</th>
+            <th>Vegetables</th>
+            <th>Fruits</th>
+            <th>Meats</th>
+            <th>Dairy</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>
+                <input type="checkbox" name="spices" value="salt /"/>Salt<br />
+                <input type="checkbox" name="spices" value="pepper /"/>Pepper<br />
+                <input type="checkbox" name="spices" value="garlic /"/>Garlic<br />
+                <input type="checkbox" name="spices" value="basil /"/>Basil<br />
+            </td>
+            <td>
+                <input type="checkbox" name="condiments" value="mustard /"/>Mustard<br />
+                <input type="checkbox" name="condiments" value="mayonnaise /"/>Mayonnaise<br />
+                <input type="checkbox" name="condiments" value="ranch /"/>Ranch<br />
+                <input type="checkbox" name="condiments" value="hot sauce /"/>Hot Sauce<br />
+            </td>
+            <td>
+                <input type="checkbox" name="grains" value="rice /"/>Rice<br />
+                <input type="checkbox" name="grains" value="pasta /"/>Pasta<br />
+                <input type="checkbox" name="grains" value="quinoa /"/>Quinoa<br />
+                <input type="checkbox" name="grains" value="barley /"/>Barley<br />
+            </td>
+            <td>
+                <input type="checkbox" name="vegetables" value="carrots /" />Carrots<br />
+                <input type="checkbox" name="vegetables" value="celery /" />Celery<br />
+                <input type="checkbox" name="vegetables" value="spinach /" />Spinach<br />
+                <input type="checkbox" name="vegetables" value="onions /" />Onions<br />
+            </td>
+            <td>
+                <input type="checkbox" name="fruits" value="raspberries /" />Raspberries<br />
+                <input type="checkbox" name="fruits" value="strawberries /" />Strawberries<br />
+                <input type="checkbox" name="fruits" value="bananas /" />Bananas<br />
+                <input type="checkbox" name="fruits" value="pears /" />Pears<br />
+            </td>
+            <td>
+                <input type="checkbox" name="meats" value="chicken /" /> Chicken<br />
+                <input type="checkbox" name="meats" value="pork /" /> Pork<br />
+                <input type="checkbox" name="meats" value="beef /" /> Beef<br />
+                <input type="checkbox" name="meats" value="duck /" /> Duck<br />
+            </td>
+            <td>
+                <input type="checkbox" name="dairy" value="milk /"> Milk <br />
+                <input type="checkbox" name="dairy" value="butter /"> Butter <br />
+                <input type="checkbox" name="dairy" value="cheese /"> Cheese <br />
+                <input type="checkbox" name="dairy" value="eggs /"> Eggs <br />
+            </td>
+         </tr>
+    </table>
+
+    <div class="button">
+        <input id="btnSubmit" type="Submit" value="Submit" /> 
+        <br /><br /> <div id="divResult"> </div>
+    </div>
+</body>
+</html>
