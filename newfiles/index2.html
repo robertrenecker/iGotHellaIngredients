@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+    <meta charset="utf-8" />
+    <title>Hella Ingredients</title>
+    <style type="text/css">
+        html, body {
+            background-image: url(back2.jpg);
+            background-size: 100%;
+            
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+            width: 100%;
+        }
+        thead{
+            background-color: white;
+            font-size: 36px;
+        }
+        tr {
+            color: gray;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: rgba(241, 183, 115, 0.69);
+        }
+        td {
+            font-size: 18px;
+            font-weight: bold;
+            vertical-align: top;
+        }
+
+        div.button {
+            position: relative;
+            left: 50%;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0px;
+            margin: auto;
+            text-align: center;
+        }
+
+            ul li {
+                margin: auto;
+                position: relative;
+                float: left;
+            }
+
+        li ul {
+            display: none;
+        }
+
+        ul li a {
+            display: block;
+            background: #000;
+            padding: 10px 10px 10px 10px;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+        }
+
+        div.NavMen {
+            width: 1000px;
+            position: relative;
+            left: 36%;
+            top: 250px;
+        }
+
+        .divResult {
+            text-align: center;
+        }
+
+        .header {
+            height: 40px;
+            background: #000000;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+        }
+
+        p.front-text {
+            font-size: 48px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bolder;
+            position: relative;
+            width: 100%;
+            height: 10%;
+            top: 0;
+            left: 0;
+            text-align: center;
+            color: gray;
+        }
+
+        ul li a:hover {
+            background: #b08d51;
+            text-decoration: underline;
+        }
+
+        li:hover ul {
+            display: block;
+            position: absolute;
+        }
+
+        li:hover li {
+            float: none;
+        }
+
+        li:hover a {
+            background: #b08d51;
+        }
+
+        li:hover li a:hover {
+            background: #000;
+        }
+
+        #drop-nav li ul li {
+            border-top: 0px;
+        }
+    </style>
+
+    <script>
+			$(document).ready(function(){
+
+
+
+
+				$().ready(function () {
+  					var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients"
+
+
+  					$.get(url, function (data) {
+    					alert("Data: " + data)
+  					});
+				});
+
+
+				$('#btnSubmit').click(function(){
+
+					var result = $('input[type="checkbox"]:checked');
+					if(result.length > 0){
+						var resultString = result.length + " Ingredient(s) Chosen <br/>";
+
+						result.each(function(){
+
+							resultString += $(this).val() + "<br/>";
+						});
+
+						$('#divResult').html(resultString);
+
+				}
+				else {
+
+					$('#divResult').html("Please Select at Least One Ingredient");
+
+				}
+
+				})
+			});
+    </script>
+
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+
+        </ul>
+    </div>
+
+    <p class="front-text"> Hella Ingredients Meal Generator</p>
+
+    <table>
+        <thead>
+            <tr>
+            <th>Spices</th>
+            <th>Grains</th>
+            <th>Vegetables</th>
+            <th>Fruits</th>
+            <th>Proteins</th>
+            <th>Dairy/Other</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>
+        
+                <input type="checkbox" name="spices" value="basil /"/>Basil<br />
+                <input type="checkbox" name="spices" value="bay leaves /" />Bay Leaves<br />
+                <input type="checkbox" name="spices" value="cayenne /" />Cayenne<br />
+                <input type="checkbox" name="spices" value="chili powder /" />Chili Powder<br />
+                <input type="checkbox" name="spices" value="cilantro /" />Cilantro<br />
+                <input type="checkbox" name="spices" value="cumin /" />Cumin<br />
+                <input type="checkbox" name="spices" value="curry powder /" />Curry Powder<br />
+                <input type="checkbox" name="spices" value="dill /" />Dill<br />
+                <input type="checkbox" name="spices" value="garlic /" />Garlic<br />
+                <input type="checkbox" name="spices" value="ginger /" />Ginger<br />
+                <input type="checkbox" name="spices" value="oregano /" />Oregano<br />
+                <input type="checkbox" name="spices" value="paprika /" />Paprika<br />
+                <input type="checkbox" name="spices" value="pepper /" />Pepper<br />
+                <input type="checkbox" name="spices" value="rosemary /" />Rosemary<br />
+                <input type="checkbox" name="spices" value="sage /" />Sage<br />
+                <input type="checkbox" name="spices" value="salt /" />Salt<br />
+            </td>
+            <td>
+                <input type="checkbox" name="grains" value="barley /" />Barley<br />
+                <input type="checkbox" name="grains" value="buckwheat /" />Buckwheat<br />
+                <input type="checkbox" name="grains" value="corn meal /" />Corn Meal<br />
+                <input type="checkbox" name="grains" value="millet /" />Millet<br />
+                <input type="checkbox" name="grains" value="oats /" />Oats<br />
+                <input type="checkbox" name="grains" value="pasta /" />Pasta<br />
+                <input type="checkbox" name="grains" value="quinoa /" />Quinoa<br />
+                <input type="checkbox" name="grains" value="rice /"/>Rice<br />
+                <input type="checkbox" name="grains" value="rye /" />Rye<br />
+                
+            </td>
+            <td>
+                <input type="checkbox" name="vegetables" value="carrots /" />Carrots<br />
+                <input type="checkbox" name="vegetables" value="celery /" />Celery<br />
+                <input type="checkbox" name="vegetables" value="spinach /" />Spinach<br />
+                <input type="checkbox" name="vegetables" value="potatoes /" />Potatoes<br />
+                <input type="checkbox" name="vegetables" value="tomatoes /" />Tomatoes<br />
+                <input type="checkbox" name="vegetables" value="lettuce /" />Lettuce <br />
+                <input type="checkbox" name="vegetables" value="cucumbers /" />Cucumbers<br />
+                <input type="checkbox" name="vegetables" value="bell peppers /" />Bell Peppers<br />
+                <input type="checkbox" name="vegetables" value="cabbage /" />Cabbage<br />
+                <input type="checkbox" name="vegetables" value="beans /" />Beans<br />
+                <input type="checkbox" name="vegetables" value="sweet potatoes /" />Sweet Potatoes<br />
+                <input type="checkbox" name="vegetables" value="pumpkin /" />Pumpkin<br />
+                <input type="checkbox" name="vegetables" value="mushrooms /" />Mushrooms<br />
+                <input type="checkbox" name="vegetables" value="cauliflower /" />Cauliflower<br />
+                <input type="checkbox" name="vegetables" value="asparagus /" />Asparagus<br />
+                <input type="checkbox" name="vegetables" value="radishes /" />Radishes<br />
+                <input type="checkbox" name="vegetables" value="trunip /" />Turnip<br />
+                <input type="checkbox" name="vegetables" value="okra /" />Okra<br />
+                <input type="checkbox" name="vegetables" value="kale /" />Kale<br />
+                <input type="checkbox" name="vegetables" value="eggplant /" />Eggplant<br />
+                <input type="checkbox" name="vegetables" value="brussels sprouts /" />Brussels Sprouts<br />
+            </td>
+            <td>
+                <input type="checkbox" name="fruits" value="raspberries /" />Raspberries<br />
+                <input type="checkbox" name="fruits" value="strawberries /" />Strawberries<br />
+                <input type="checkbox" name="fruits" value="bananas /" />Bananas<br />
+                <input type="checkbox" name="fruits" value="pears /" />Pears<br />
+                <input type="checkbox" name="fruits" value="apples /" />Apples<br />
+                <input type="checkbox" name="fruits" value="apricots /" />Apricots<br />
+                <input type="checkbox" name="fruits" value="cantaloupe /" />Cantaloupe<br />
+                <input type="checkbox" name="fruits" value="cherries /" />Cherries<br />
+                <input type="checkbox" name="fruits" value="dates /" />Dates<br />
+                <input type="checkbox" name="fruits" value="lemons /" />Lemons<br />
+                <input type="checkbox" name="fruits" value="limes /" />Limes<br />
+                <input type="checkbox" name="fruits" value="oranges /" />Orange<br />
+                <input type="checkbox" name="fruits" value="grapefruits /" />Grapefruit<br />
+                <input type="checkbox" name="fruits" value="grapes /" />Grapes<br />
+                <input type="checkbox" name="fruits" value="peaches /" />Peaches<br />
+                <input type="checkbox" name="fruits" value="pineapples /" />Pineapple<br />
+                <input type="checkbox" name="fruits" value="plantains /" />Plantains<br />
+                <input type="checkbox" name="fruits" value="plums /" />Plums<br />
+                <input type="checkbox" name="fruits" value="pomelo /" />Pomelo<br />
+                <input type="checkbox" name="fruits" value="tangerines /" />Tangerines<br />
+                <input type="checkbox" name="fruits" value="watermelon /" />Watermelon<br />
+                <input type="checkbox" name="fruits" value="mangos /" />Mangos<br />
+                <input type="checkbox" name="fruits" value="papayas /" />Papaya<br />
+                <input type="checkbox" name="fruits" value="honeydew /" />Honeydew<br />
+            </td>
+            <td>
+                <input type="checkbox" name="meats" value="chicken /" />Chicken<br />
+                <input type="checkbox" name="meats" value="pork /" />Pork<br />
+                <input type="checkbox" name="meats" value="steak /" />Beef<br />
+                <input type="checkbox" name="meats" value="duck /" />Duck<br />
+                <input type="checkbox" name="meats" value="italian sausage /" />Italian Sausage<br />
+                <input type="checkbox" name="meats" value="pork sausage /" />Pork Sausage<br />
+                <input type="checkbox" name="meats" value="ground beef /" />Ground Beef<br />
+                <input type="checkbox" name="meats" value="ground chicken /" />Ground Chicken<br />
+                <input type="checkbox" name="meats" value="turkey /" />Turkey<br />
+                <input type="checkbox" name="meats" value="ground turkey /" />Ground Turkey<br />
+                <input type="checkbox" name="meats" value="rabbit /" />Rabbit<br />
+                <input type="checkbox" name="meats" value="bison /" />Bison<br />
+                <input type="checkbox" name="meats" value="ground bison /" />Ground Bison<br />
+                <input type="checkbox" name="meats" value="shrimp /" />Shrimp<br />
+                <input type="checkbox" name="meats" value="scallops /" />Scallops<br />
+                <input type="checkbox" name="meats" value="tuna /" />Tuna<br />
+                <input type="checkbox" name="meats" value="salmon /" />Salmon<br />
+                <input type="checkbox" name="meats" value="tilapia /" />Tilapia<br />
+                <input type="checkbox" name="meats" value="cod /" />Cod<br />
+                <input type="checkbox" name="meats" value="halibut /" />Halibut<br />
+                <input type="checkbox" name="meats" value="trout /" />Trout<br />
+                <input type="checkbox" name="meats" value="mahi mahi /" />Mahi Mahi<br />
+                <input type="checkbox" name="meats" value="branzino /" />Branzino<br />
+                <input type="checkbox" name="meats" value="carp /" />Carp<br />
+                <input type="checkbox" name="meats" value="catfish /" />Catfish<br />
+                <input type="checkbox" name="meats" value="yellowtail /" />Yellowtail<br />
+                <input type="checkbox" name="meats" value="albacore /" />Albacore<br />
+                <input type="checkbox" name="meats" value="lobster /" />Lobster<br />
+                <input type="checkbox" name="meats" value="calimari /" />Calimari<br />
+                <input type="checkbox" name="meats" value="tofu /" />Tofu<br />
+            </td>
+            <td>
+                <input type="checkbox" name="dairy" value="milk /">Milk <br />
+                <input type="checkbox" name="dairy" value="heavy cream/">Heavy Cream <br />
+                <input type="checkbox" name="dairy" value="butter /">Butter <br />
+                <input type="checkbox" name="dairy" value="provolone /">Provolone <br />
+                <input type="checkbox" name="dairy" value="swiss /">Swiss<br />
+                <input type="checkbox" name="dairy" value="cheddar /">Cheddar<br />
+                <input type="checkbox" name="dairy" value="white cheddar /">White Cheddar<br />
+                <input type="checkbox" name="dairy" value="bleu cheese /">Bleu Cheese<br />
+                <input type="checkbox" name="dairy" value="american cheese /">American Cheese<br />
+                <input type="checkbox" name="dairy" value="gruyere /">Gruyere<br />
+                <input type="checkbox" name="dairy" value="brie /">Brie<br />
+                <input type="checkbox" name="dairy" value="romano /">Romano<br />
+                <input type="checkbox" name="dairy" value="asiago /">Asiago<br />
+                <input type="checkbox" name="dairy" value="gorgonzola /">Gorgonzola<br />
+                <input type="checkbox" name="dairy" value="monterey jack /">Monterey Jack<br />
+                <input type="checkbox" name="dairy" value="colby jack /">Colby Jack<br />
+                <input type="checkbox" name="dairy" value="cheddar jack /">Cheddar Jack<br />
+                <input type="checkbox" name="dairy" value="pepper jack /">Pepper Jack<br />
+                <input type="checkbox" name="dairy" value="eggs /">Eggs<br />
+                <input type="checkbox" name="dairy" value="crema /" />Crema<br />
+                <input type="checkbox" name="dairy" value="fruit preserves /" />Fruit Preserves<br />
+                <input type="checkbox" name="dairy" value="honey /" />Honey<br />
+                <input type="checkbox" name="dairy" value="horseradish /" />Horseradish<br />
+                <input type="checkbox" name="dairy" value="mayonnaise /" />Mayonnaise<br />
+                <input type="checkbox" name="dairy" value="mustard /" />Mustard<br />
+                <input type="checkbox" name="dairy" value="pesto /" />Pesto<br />
+                <input type="checkbox" name="dairy" value="ranch /" />Ranch<br />
+                <input type="checkbox" name="dairy" value="relish /" />Relish<br />
+                <input type="checkbox" name="dairy" value="salsa /" />Salsa<br />
+                <input type="checkbox" name="dairy" value="soy sauce /" />Soy Sauce<br />
+                <input type="checkbox" name="dairy" value="flour /">Flour<br />
+                <input type="checkbox" name="dairy" value="wheat flour /">Wheat Flour<br />
+                <input type="checkbox" name="dairy" value="sugar /"> Cheese <br />
+                <input type="checkbox" name="dairy" value="brown sugar /">Brown Sugar<br />
+                <input type="checkbox" name="dairy" value="corn starch /">Corn Starch<br />
+                <input type="checkbox" name="dairy" value="vanilla extract /">Vanilla Extract<br />
+            </td>
+         </tr>
+    </table>
+
+    <div class="button">
+        <input id="btnSubmit" type="Submit" value="Submit" /> 
+        <br /><br /> <div id="divResult"> </div>
+    </div>
+</body>
+</html>
