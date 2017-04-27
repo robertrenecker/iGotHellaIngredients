@@ -3,25 +3,43 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script type="text/javascript"></script>	
+<style>
+.img {
+    position: relative;
+    float: left;
+    width:  100px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
+</style>
 <script>
 $(document).ready(function(){
 				var container = $('div.container');
-				
+				var ingredients = "apples,flour,sugar";
 				$.ajax({
 					type: 'GET',
 					beforeSend: function(request){
 						request.setRequestHeader("X-Mashape-Key", "IivjnOYWu5mshIO0WBeIhYx0qqEvp1Yra75jsnXGsX81qPGKm9")
 						request.setRequestHeader("Accept", "application/json")
 					},
-					url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1",
+					url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients="+ ingredients + "&limitLicense=false&number=5&ranking=1",
 					dataType: 'json',
 					crossDomain : true,
 					success: function(data) {
 						$.each(data, function(index, item){
 							$.each(item, function(key, value){
-								container.append(key + ': ' + value + '</br>') 	
+								if(key == 'image' ){
+									
+									container.append("<img src='" + value + "' /> " + '</br>');
+									container.append(key + ': ' + value + '</br>') 
+								}
+								else{
+								container.append(key + ': ' + value + '</br>') 	}
 							});
 						container.append('</br></br>');
+
 						});
 					}
 
@@ -33,13 +51,52 @@ $(document).ready(function(){
 
 </script>
 </head>
+
 <body>
-
 	<div class ="container"></div>
-
-
-
+	<div id="banner"></div>
+	<img ng-src="{{banner}}"/>
+	<!--
+	<script language="javascript">
+		document.write('<img src="' + banner);
+		document.write(' "width ="100%" />"');
+		</script>-->
+	<!--<img src="https://spoonacular.com/recipeImages/Brown-Butter-Apple-Crumble-534573.jpg"></img>-->
 </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </html>

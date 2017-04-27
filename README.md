@@ -64,4 +64,9 @@ Project Plan:
 https://github.com/robertrenecker/iGotHellaIngredients.git
 
 
+---------------------------------------------------------------------
+
+
+Utilizations:
+	Spoonacular API --> Basic Plan --> 50 uses / day
 
