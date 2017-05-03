@@ -38,7 +38,7 @@
 
         div.button {
             position: relative;
-            left: 50%;
+            text-align: center;
         }
 
         ul {
@@ -133,7 +133,12 @@
         }
 
         .container {
+<<<<<<< HEAD
+            width: 100%;
+            height: 150px;  
+=======
             width: 100%;  
+>>>>>>> e85712fed85fda7a773cb93a0723568656111bf4
             text-align: center;
             position: absolute;
             
@@ -143,6 +148,39 @@
             width:200px;
             height: 300px;
         }
+
+        p.user_entry {
+            font-size: 24px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bolder;
+            position: relative;
+            text-align: center;
+            color: gray;
+        }
+
+        input[type=text] {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bolder;
+            font-size: 18px;
+            height: 30px;
+        }
+
+        input[type=Submit] {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            background: white;
+            color: black;
+            border-color: white;
+            padding: 10px 40px;
+        }
+
+        input[type=Submit]:hover {
+            border-color: black;
+            box-shadow: 0 10px 16px 0 rgba(0,0,0,0.24), 0 10px 40px 0 rgba(0,0,0,0.19);
+        }
+
+
     </style>
 
     <script>
@@ -150,11 +188,39 @@
 
 
 
+<<<<<<< HEAD
+                /*
+				$().ready(function () {
+  					var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients"
+
+
+  					$.get(url, function (data) {
+    					alert("Data: " + data)
+  					});
+				});
+                */
+                var resultString = "";
+
+                $('#cstmSubmit').click(function(){
+                    var usrEntry = $('#cstmEntry').val();
+                    if (usrEntry == "") {
+                        alert("You did not add anything to your ingredients.");
+                    }else{
+                        resultString += usrEntry + ", ";
+                        alert(usrEntry + " was successfully added to your ingredients.");
+                    }
+                    
+                })
+
+
+
+=======
+>>>>>>> e85712fed85fda7a773cb93a0723568656111bf4
 				$('#btnSubmit').click(function(){
 
 					var result = $('input[type="checkbox"]:checked');
 					if(result.length > 0){
-						var resultString = "";
+						
 
 						result.each(function(){
 
@@ -295,13 +361,25 @@
 <body>
     <div class="header">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#news">News</a></li>
+            <li><a href="index2.html">Home</a></li>
+            <li><a href="indexabout.html">About Us</a></li>
 
         </ul>
     </div>
 
     <p class="front-text"> Hella Ingredients Meal Generator</p>
+
+
+
+    <p class="user_entry">
+        Manual Ingredient Entry<br>
+        If you do not see an ingredient enter it here<br>
+        <br>
+        <input id="cstmEntry" type="text" name="user_entry">
+        <input id="cstmSubmit" type="Submit" value="Add Unlisted Ingredient">
+
+    </p>
+
 
     <table>
         <thead>
@@ -465,7 +543,7 @@
     </table>
 
     <div class="button">
-        <input id="btnSubmit" type="Submit" value="Submit" /></div>
+        <input id="btnSubmit" type="Submit" value="Find Recipe" /></div>
         <br /><br /> 
         <div id="divResult"> </div>
         <div class ="container"></div>
