@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE html>
+<!--645152-->
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script type="text/javascript"></script>	
+<script>
+$(document).ready(function(){
+				var container = $('div.container');
+				var ingredients = "324694";
+				$.ajax({
+					type: 'GET',
+					beforeSend: function(request){
+						request.setRequestHeader("X-Mashape-Key", "IivjnOYWu5mshIO0WBeIhYx0qqEvp1Yra75jsnXGsX81qPGKm9")
+						request.setRequestHeader("Accept", "application/json")
+					},
+					url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + ingredients + "/analyzedInstructions",
+					dataType: 'json',
+					crossDomain : true,
+					success: function(data) {
+						$.each(data, function(index, item){
+							$.each(item, function(key, value){
+								
+									
+									//container.append(key + " : " + value  + '</br>');
+
+									$.each(value, function(key,value){
+
+										
+
+										$.each(value, function(key,value){
+
+											if(key == 'number'){
+												container.append("Step " + value + "</br>");
+											}
+											if(key == 'ingredients'){
+												if(value.length > 0){
+													container.append("ingredients needed: ");
+													$.each(value, function(key,value){
+														$.each(value, function(key,value){
+															if(key == 'name'){
+															container.append(value + ", ");
+															}
+														})
+													})
+														container.append("</br>");
+													}
+														
+											}
+											if(key == 'step'){
+												container.append(value + "</br>");
+											}
+
+											
+											container.append("</br>")
+										})
+									});
+									
+								
+								
+							});
+							container.append('</br></br>');
+
+						});
+					}
+
+
+				});
+
+				});
+
+
+</script>
+</head>
+
+
+<body>
+	<div class ="container"></div>
+	<div id="banner"></div>
+	<img ng-src="{{banner}}"/>
+	<!--
+	<script language="javascript">
+		document.write('<img src="' + banner);
+		document.write(' "width ="100%" />"');
+		</script>-->
+	<!--<img src="https://spoonacular.com/recipeImages/Brown-Butter-Apple-Crumble-534573.jpg"></img>-->
+</body>
