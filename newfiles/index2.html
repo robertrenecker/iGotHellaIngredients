@@ -206,12 +206,24 @@
                     }
                     
                 })
+                $(document).keypress(function(e) {
+                    if (e.which == 13) {
+                        var usrEntry = $('#cstmEntry').val();
+                        if (usrEntry == "") {
+                            alert("You did not add anything to your ingredients.");
+                        }else{
+                            resultString += usrEntry + ", ";
+                            alert(usrEntry + " was successfully added to your ingredients.");
+                        }
+                    return false;    //<---- Add this line
+  }
+                });
 
 
 				$('#btnSubmit').click(function(){
 
 					var result = $('input[type="checkbox"]:checked');
-					if(result.length > 0){
+					if(resultString.length > 0 || result.length > 0){
 						
 
 						result.each(function(){
@@ -219,7 +231,7 @@
 							resultString += $(this).val() + ", ";
 						});
 
-						$('#divResult').html(resultString);
+						//$('#divResult').html(resultString);
 
                         //we have our string, call api with string
                         $("div.container").empty();
@@ -257,7 +269,7 @@
                                             id = value;
 
                                         }      
-                                        /*if(key == 'id'){
+                                        if(key == 'id'){
                                             
                                             
                                             $.ajax({
@@ -320,7 +332,7 @@
 
 
                                         });//second ajax request 
-                                    } //if key is id */         
+                                    } //if key is id         
 
                                     }//if key is image, rather title or id
 
@@ -540,10 +552,7 @@
         <div id="divResult"> </div>
         <div class ="container"></div>
         <div id="banner">
-        <table>
-
-        <img height="40px" width="40px" ng-src="{{banner}}"/>
-    </table>
+       
     </div>
     
 </body>
